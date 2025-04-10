@@ -1,38 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Saints: The 12 Houses!</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/main.js"></script>
+  <meta charset="UTF-8">
+  <title>Descubra seu Cavaleiro de Ouro</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://cdn.mos.cms.futurecdn.net/ZxMaZq2VfVKj7Lbo5y7dLR.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .box {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ffffff30;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: purple;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: darkmagenta;
+    }
+
+    .result-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .result-box {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 0 30px #ffffff50;
+    }
+
+    .result-box h1 {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .result-box img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .saint-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  </style>
 </head>
-
 <body>
-
-    <div class="divTitulo">
-        <p>Find out which Saint Seiya Gold Saint you are:
-            <br>
-                <label for="dia">Day:</label>
-                <input type="number" id="dia" min="1" max="31" required>
-
-                <label for="mes">Month:</label>
-                <input type="number" id="mes" min="1" max="12" required>
-            
-                <button class="button" onclick="MudaDesenho()">Awaken Your Cosmo!</button>
-        <p>
+  <div class="container">
+    <div class="box">
+      <h1>Descubra seu Cavaleiro de Ouro</h1>
+      <input type="number" id="day" placeholder="Dia de nascimento" min="1" max="31">
+      <input type="number" id="month" placeholder="Mês de nascimento" min="1" max="12">
+      <button onclick="showSaint()">Ver Cavaleiro</button>
     </div>
+  </div>
 
-    <h1></h1>
+  <script>
+    const saints = [
+      { sign: 'Áries', name: 'Mu de Áries', img: './img/aries.webp', desc: 'Mu é o Cavaleiro de Ouro de Áries, conhecido por sua habilidade de consertar armaduras e por sua poderosa técnica Extinção Estelar.' },
+      { sign: 'Touro', name: 'Aldebaran de Touro', img: './img/touro.jpg', desc: 'Aldebaran é o Cavaleiro de Touro, famoso por sua força bruta e lealdade. Usa o Grande Chifre como ataque principal.' },
+      { sign: 'Gêmeos', name: 'Saga de Gêmeos', img: './img/gemeos.jpg', desc: 'Saga possui uma personalidade dividida e é um dos cavaleiros mais poderosos. Mestre da Outra Dimensão e Explosão Galáctica.' },
+      { sign: 'Câncer', name: 'Máscara da Morte de Câncer', img: './img/cancer.jpg', desc: 'Máscara da Morte é conhecido por sua ligação com o mundo dos mortos, usando a técnica Ondas do Inferno.' },
+      { sign: 'Leão', name: 'Aiolia de Leão', img: './img/leao.jpg', desc: 'Aiolia é o irmão mais novo de Aiolos e um cavaleiro extremamente rápido e corajoso. Usa o Relâmpago de Plasma.' },
+      { sign: 'Virgem', name: 'Shaka de Virgem', img: './img/virgem.webp', desc: 'Considerado o mais próximo de Buda, Shaka é um dos cavaleiros mais sábios e poderosos. Usa o Tesouro do Céu.' },
+      { sign: 'Libra', name: 'Dohko de Libra', img: './img/libra.jpg', desc: 'Dohko é o antigo mestre de Shiryu e guardião das 12 armas sagradas. Sua experiência é incomparável.' },
+      { sign: 'Escorpião', name: 'Milo de Escorpião', img: './img/escorpiao.webp', desc: 'Milo é impiedoso contra seus inimigos, utilizando a técnica Agulha Escarlate para puni-los.' },
+      { sign: 'Sagitário', name: 'Aiolos de Sagitário', img: './img/sagitario.webp', desc: 'Aiolos sacrificou-se para proteger Atena e é lembrado por sua bravura e o Trovão Atômico.' },
+      { sign: 'Capricórnio', name: 'Shura de Capricórnio', img: './img/capricornio.png', desc: 'Shura acredita na justiça com força. Sua técnica Excalibur corta qualquer coisa.' },
+      { sign: 'Aquário', name: 'Camus de Aquário', img: './img/aquario.png', desc: 'Camus domina o frio absoluto e é mestre de Hyoga. Seu ataque mais poderoso é a Execução Aurora.' },
+      { sign: 'Peixes', name: 'Afrodite de Peixes', img: './img/peixes.jpg', desc: 'Afrodite é belo e mortal, usando rosas venenosas e cortantes em combate.' }
+    ];
 
-    <div class="divImg">
-        <img src="img/signos.jpg">
-    </div>
+    function showSaint() {
+      const day = parseInt(document.getElementById("day").value);
+      const month = parseInt(document.getElementById("month").value);
 
-    <div class="descricao"></div>
+      if (!day || !month || day < 1 || day > 31 || month < 1 || month > 12) {
+        alert("Digite um dia e mês válidos!");
+        return;
+      }
 
+      let index;
+
+      if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) index = 0;
+      else if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) index = 1;
+      else if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) index = 2;
+      else if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) index = 3;
+      else if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) index = 4;
+      else if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) index = 5;
+      else if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) index = 6;
+      else if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) index = 7;
+      else if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) index = 8;
+      else if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) index = 9;
+      else if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) index = 10;
+      else if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) index = 11;
+
+      const selected = saints[index];
+
+      document.body.innerHTML = `
+        <div class="result-page">
+          <div class="result-box">
+            <h1><strong>${selected.name}</strong><br><em>Cavaleiro de Ouro</em></h1>
+            <img src="zodiacs/${selected.img}" alt="${selected.name}">
+            <p class="saint-desc">${selected.desc}</p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
 </body>
-
 </html>
