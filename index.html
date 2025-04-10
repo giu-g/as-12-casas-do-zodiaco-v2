@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Descubra seu Cavaleiro de Ouro</title>
+  <title>Discover Your Gold Saint</title>
   <style>
     body {
       margin: 0;
@@ -98,27 +98,27 @@
 <body>
   <div class="container">
     <div class="box">
-      <h1>Descubra seu Cavaleiro de Ouro</h1>
-      <input type="number" id="day" placeholder="Dia de nascimento" min="1" max="31">
-      <input type="number" id="month" placeholder="Mês de nascimento" min="1" max="12">
-      <button onclick="showSaint()">Ver Cavaleiro</button>
+      <h1>Discover Your Gold Saint</h1>
+      <input type="number" id="day" placeholder="Birth Day" min="1" max="31">
+      <input type="number" id="month" placeholder="Birth Month" min="1" max="12">
+      <button onclick="showSaint()">See Saint</button>
     </div>
   </div>
 
   <script>
     const saints = [
-      { sign: 'Áries', name: 'Mu de Áries', img: './img/aries.webp', desc: 'Mu é o Cavaleiro de Ouro de Áries, conhecido por sua habilidade de consertar armaduras e por sua poderosa técnica Extinção Estelar.' },
-      { sign: 'Touro', name: 'Aldebaran de Touro', img: './img/touro.jpg', desc: 'Aldebaran é o Cavaleiro de Touro, famoso por sua força bruta e lealdade. Usa o Grande Chifre como ataque principal.' },
-      { sign: 'Gêmeos', name: 'Saga de Gêmeos', img: './img/gemeos.jpg', desc: 'Saga possui uma personalidade dividida e é um dos cavaleiros mais poderosos. Mestre da Outra Dimensão e Explosão Galáctica.' },
-      { sign: 'Câncer', name: 'Máscara da Morte de Câncer', img: './img/cancer.jpg', desc: 'Máscara da Morte é conhecido por sua ligação com o mundo dos mortos, usando a técnica Ondas do Inferno.' },
-      { sign: 'Leão', name: 'Aiolia de Leão', img: './img/leao.jpg', desc: 'Aiolia é o irmão mais novo de Aiolos e um cavaleiro extremamente rápido e corajoso. Usa o Relâmpago de Plasma.' },
-      { sign: 'Virgem', name: 'Shaka de Virgem', img: './img/virgem.webp', desc: 'Considerado o mais próximo de Buda, Shaka é um dos cavaleiros mais sábios e poderosos. Usa o Tesouro do Céu.' },
-      { sign: 'Libra', name: 'Dohko de Libra', img: './img/libra.jpg', desc: 'Dohko é o antigo mestre de Shiryu e guardião das 12 armas sagradas. Sua experiência é incomparável.' },
-      { sign: 'Escorpião', name: 'Milo de Escorpião', img: './img/escorpiao.webp', desc: 'Milo é impiedoso contra seus inimigos, utilizando a técnica Agulha Escarlate para puni-los.' },
-      { sign: 'Sagitário', name: 'Aiolos de Sagitário', img: './img/sagitario.webp', desc: 'Aiolos sacrificou-se para proteger Atena e é lembrado por sua bravura e o Trovão Atômico.' },
-      { sign: 'Capricórnio', name: 'Shura de Capricórnio', img: './img/capricornio.png', desc: 'Shura acredita na justiça com força. Sua técnica Excalibur corta qualquer coisa.' },
-      { sign: 'Aquário', name: 'Camus de Aquário', img: './img/aquario.png', desc: 'Camus domina o frio absoluto e é mestre de Hyoga. Seu ataque mais poderoso é a Execução Aurora.' },
-      { sign: 'Peixes', name: 'Afrodite de Peixes', img: './img/peixes.jpg', desc: 'Afrodite é belo e mortal, usando rosas venenosas e cortantes em combate.' }
+      { sign: 'Aries', name: 'Mu of Aries', img: 'img/aries.webp', desc: 'Mu is the Gold Saint of Aries, known for repairing armors and his powerful Starlight Extinction.' },
+      { sign: 'Taurus', name: 'Aldebaran of Taurus', img: 'img/touro.jpg', desc: 'Aldebaran is famous for his brute strength and loyalty. His main attack is the Great Horn.' },
+      { sign: 'Gemini', name: 'Saga of Gemini', img: 'img/gemeos.jpg', desc: 'Saga has a dual personality and is one of the most powerful saints. Master of Another Dimension and Galactic Explosion.' },
+      { sign: 'Cancer', name: 'Deathmask of Cancer', img: 'img/cancer.jpg', desc: 'Deathmask is linked to the world of the dead, using the Sekishiki Meikai Ha.' },
+      { sign: 'Leo', name: 'Aiolia of Leo', img: 'img/leao.jpg', desc: 'Aiolia is a fast and brave saint, younger brother of Aiolos. His main technique is Lightning Plasma.' },
+      { sign: 'Virgo', name: 'Shaka of Virgo', img: 'img/virgem.webp', desc: 'Considered closest to Buddha, Shaka is wise and powerful. He uses the Treasures of Heaven.' },
+      { sign: 'Libra', name: 'Dohko of Libra', img: 'img/libra.jpg', desc: 'Dohko is Shiryu’s master and guardian of the 12 sacred weapons. He has great experience and wisdom.' },
+      { sign: 'Scorpio', name: 'Milo of Scorpio', img: 'img/escorpiao.webp', desc: 'Milo punishes enemies with the Scarlet Needle technique.' },
+      { sign: 'Sagittarius', name: 'Aiolos of Sagittarius', img: 'img/sagitario.webp', desc: 'Aiolos sacrificed himself to protect Athena and is known for his bravery and Atomic Thunderbolt.' },
+      { sign: 'Capricorn', name: 'Shura of Capricorn', img: 'img/capricornio.png', desc: 'Shura believes in justice through strength. His Excalibur can cut through anything.' },
+      { sign: 'Aquarius', name: 'Camus of Aquarius', img: 'img/aquario.png', desc: 'Camus masters absolute zero and is Hyoga’s teacher. His strongest attack is Aurora Execution.' },
+      { sign: 'Pisces', name: 'Afrodite of Pisces', img: 'img/peixes.jpg', desc: 'Afrodite is beautiful and deadly, using poisonous and cutting roses in combat.' }
     ];
 
     function showSaint() {
@@ -126,7 +126,7 @@
       const month = parseInt(document.getElementById("month").value);
 
       if (!day || !month || day < 1 || day > 31 || month < 1 || month > 12) {
-        alert("Digite um dia e mês válidos!");
+        alert("Please enter a valid day and month!");
         return;
       }
 
@@ -150,9 +150,10 @@
       document.body.innerHTML = `
         <div class="result-page">
           <div class="result-box">
-            <h1><strong>${selected.name}</strong><br><em>Cavaleiro de Ouro</em></h1>
-            <img src="zodiacs/${selected.img}" alt="${selected.name}">
+            <h1><strong>${selected.name}</strong><br><em>Gold Saint</em></h1>
+            <img src="${selected.img}" alt="${selected.name}">
             <p class="saint-desc">${selected.desc}</p>
+            <button onclick="location.reload()">Go Back</button>
           </div>
         </div>
       `;
